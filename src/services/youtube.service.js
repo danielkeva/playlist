@@ -11,9 +11,11 @@ async function getVideos(keywords = 'BB king') {
             return {
                 id: item.id.videoId,
                 title: item.snippet.title,
+                desc: item.snippet.description,
                 imgs: item.snippet.thumbnails
             }
         })
+        console.log(res)
         return videos
     } catch (err) {
         console.log('err', err)

@@ -8,7 +8,8 @@ export default new Vuex.Store({
     videos: [],
     video: {
       url: 'https://www.youtube.com/embed/Y57kLy1vV1c',
-      title: 'B B King Best Songs - B B King Greatest Hits'
+      title: 'B B King Best Songs - B B King Greatest Hits',
+      desc: 'B B King Best Songs - B B King Greatest Hits Full Album'
     }
   },
   getters: {
@@ -26,7 +27,8 @@ export default new Vuex.Store({
     setVideo(state, {video}){
       let vid = {
         url: `https://www.youtube.com/embed/${video.id}`,
-        title: video.title
+        title: video.title,
+        desc: video.desc
       }
       state.video = vid
     }

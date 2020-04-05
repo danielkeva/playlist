@@ -27,7 +27,7 @@ export default {
     margin-right: 10px;
     padding: 5px 10px;
     font-size: 0.9rem;
-    min-width: 400px;
+    max-width: 400px;
   }
   button {
     align-self: flex-start;
