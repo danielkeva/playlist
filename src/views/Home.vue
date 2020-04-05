@@ -1,26 +1,32 @@
 <template>
   <div class="home">
-    <video-list  :videos="videos"></video-list>
+    <video-search @search="loadVideos"></video-search>
+    <video-list :videos="videos"></video-list>
   </div>
 </template>
 
 <script>
 import { youtubeService } from '../services/youtube.service.js'
 import videoList from '../components/video-list.vue'
+import videoSearch from '../components/video-search.vue'
 export default {
   name: 'Home',
-  data() {
-    return {
-      videos: []
+  created() {
+    this.$store.dispatch({ type: 'loadVideos' })
+  },
+  computed: {
+    videos() {
+     return this.$store.getters.videos
     }
   },
-  async created() {
-    let videos = await youtubeService.getVideos()
-    this.videos = videos
-    console.log(videos)
+  methods: {
+    loadVideos(keywords) {
+      this.$store.dispatch({ type: 'loadVideos', keywords })
+    }
   },
   components: {
-    videoList
+    videoList,
+    videoSearch
   }
 }
 </script>
