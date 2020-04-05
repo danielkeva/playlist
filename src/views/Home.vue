@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <video-search @search="loadVideos"></video-search>
+    <div class="video-container">
     <video-list :videos="videos"></video-list>
     <video-player :video="video"></video-player>
+    </div>
   </div>
 </template>
 
@@ -40,3 +42,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .video-container{
+    display: flex;  
+    justify-content: space-evenly;
+  }
+</style>

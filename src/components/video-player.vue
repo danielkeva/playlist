@@ -13,3 +13,8 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.video-player {
+  align-self: center;
+}
+</style>

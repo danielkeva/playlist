@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="video-list">
     <video-preview v-for="video in videos" :key="video.id" :video="video"></video-preview>
   </section>
 </template>
@@ -18,4 +18,8 @@ export default {
 </script>
 
 <style>
+.video-list {
+  display: flex;
+  flex-direction: column;
+}
 </style>
