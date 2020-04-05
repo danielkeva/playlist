@@ -5,16 +5,30 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    videos: []
+    videos: [],
+    video: {
+      url: 'https://www.youtube.com/embed/Y57kLy1vV1c',
+      title: 'B B King Best Songs - B B King Greatest Hits'
+    }
   },
   getters: {
     videos(state) {
       return state.videos
+    },
+    video(state) {
+      return state.video
     }
   },
   mutations: {
     setVideos(state, { videos }) {
       state.videos = videos
+    },
+    setVideo(state, {video}){
+      let vid = {
+        url: `https://www.youtube.com/embed/${video.id}`,
+        title: video.title
+      }
+      state.video = vid
     }
   },
   actions: {
