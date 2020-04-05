@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <video-list  :videos="videos"></video-list>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import { youtubeService } from '../services/youtube.service.js'
+import videoList from '../components/video-list.vue'
 export default {
   name: 'Home',
+  data() {
+    return {
+      videos: []
+    }
+  },
+  async created() {
+    let videos = await youtubeService.getVideos()
+    this.videos = videos
+    console.log(videos)
+  },
   components: {
-    HelloWorld
+    videoList
   }
 }
 </script>
